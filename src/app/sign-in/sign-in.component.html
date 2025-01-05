@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-header>
+        <h2>Login</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput type="text" formControlName="username" required>
+                <mat-error *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"> Username is required </mat-error> 
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" required>
+                <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"> Password is required </mat-error> 
+            </mat-form-field>
+            <mat-radio-group formControlName="profile">
+                <mat-radio-button value="Hr">Hr</mat-radio-button>
+                <mat-radio-button value="JobSeeker">Job Seeker</mat-radio-button>
+              </mat-radio-group>
+            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Sign In</button> 
+        </form>
+        <p>If you don't have an account you can : <a mat-button [routerLink]="selectedProfile()" >Sign Up</a></p>
+    </mat-card-content>
+</mat-card>

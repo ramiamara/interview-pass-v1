@@ -1,0 +1,40 @@
+
+<mat-card>
+    <mat-card-header>
+        <h2>User Management</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form #userForm="ngForm" (submit)="create()">
+            <h4 class="card-title">Add User</h4>
+            <mat-error *ngIf="!userValid">
+                Infos is not completed
+            </mat-error>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" [(ngModel)]="user.name" name="name" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Login</mat-label>
+                <input matInput placeholder="Login" [(ngModel)]="user.login" name="login" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" [(ngModel)]="user.email" name="email" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" [(ngModel)]="user.password" name="password" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="Phone" [(ngModel)]="user.phone" name="phone" required>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="!userForm.form.valid">Create</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<footer>
+    Copyright © 2024
+    <a href="#" rel="" target="_blank" title="sqilyo">sqilyo</a>
+</footer>
